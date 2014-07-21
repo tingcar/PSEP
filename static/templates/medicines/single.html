@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Contents Start Here -->	
+<div id="content"><h1 class="content-heading bg-white border-bottom">Medicines Detail</h1>
+<div class="bg-white innerAll border-bottom">
+	<ul class="menubar">
+	    <li><p><span class="text-primary strong text-uppercase">{{ medicine }}</span></p></li>
+		<li><a href="/accounts/medicines/">All Medicines</a></li>
+	</ul>
+</div>
+<div class="innerAll spacing-x2">
+
+	<!-- row-app -->
+	<div class="row row-app">
+
+		<!-- col -->
+		<div class="col-lg-8">
+
+			<div class="box-generic padding-none">
+				<div class="media innerAll">
+					<!-- <button class="pull-right btn btn-default btn-sm"><i class="fa fa-fw fa-edit"></i> Edit</button> -->
+	                 <img src='{{MEDIA_URL}}{{ medicine.image }}' class="thumb pull-left" alt="" width="200"/>
+					<div class="media-body innerLR innerT half">
+						<h4 class="media-heading">{{ medicine }}</h4>
+						<p>HA_code: {{ medicine.HA_code }}<br/>UNI_code:   {{ medicine.UNI_code }}<br/>
+						{% if medicine.oral %}
+						<i class="fa fa-check-square-o fa-fw"></i>Oral
+						{% else %}
+						<i class="fa fa-square-o fa-fw"></i>Oral
+						{% endif %}
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="box-generic padding-none">
+			    <div class="media innerAll">
+			         <h4>Medicine Description</h4>
+			         <p>{{ medicine.description }}</p>	
+                     	
+			    </div>
+			</div>
+			
+		</div>
+
+		<!-- other half column -->
+		<div class="col-lg-4">
+				
+			<div class="box-generic margin-none heading-buttons innerAll half ">
+				<h4 class="margin-none padding-none pull-left">Medicines</h4>
+				<div class="btn-group btn-group-xs pull-right">
+				<button class="btn btn-xs btn-default pull-right" onClick="location.href='/accounts/medicines/add_medicine/'"><i class="fa fa-plus"></i> Add New Medicine<i class="fa fa-medkit fa-fw"></i></button>
+	            </div>
+				<div class="clearfix"></div>
+			</div>
+
+			<div class="box-generic padding-none border-top-none">
+				<div class="input-group input-group-sm">
+			      	<div class="input-group-btn">
+			    <form role="form" method="post" action="/accounts/medicines/find"/>              
+                {% csrf_token %}
+			    <button type="submit" class="btn btn-inverse btn-sm" >Find</button>
+			      	</div>
+				<select class="form-control border-none" id="id_selected" name="selected" style="width: 100%;" >
+                {% for medicine in all_medicines %}
+                <option value='{{ medicine.iid }}'>{{ medicine.Med_name }}</option>
+                {% endfor %}
+				</select></form>
+				
+			    </div>
+			</div>
+
+			
+			<div class="box-generic margin-none heading-buttons innerAll half bg-primary">
+				<h5 class="margin-none padding-none pull-left">Medicine Takers</h5>
+				<div class="clearfix"></div>
+			</div>
+			
+			<ul class="list-group list-group-1 margin-none">
+			{% for taker in takers %}
+			    <li class="list-group-item">			    
+					<div class="media innerAll half">
+					    <div class="row">
+					    <div class="col-md-4">
+					    <img src='{{MEDIA_URL}}{{ taker.client.image }}' alt="" class="media-object" height="60" width="60"/>
+					    </div>		
+					    			    
+				        <div class="col-md-8">									
+							<a href="/accounts/clients/{{ taker.client.iid }}" class="pull-right btn btn-primary btn-stroke btn-xs"><i class="fa fa-arrow-right"></i></a>			    
+					  		<h5 class="media-heading strong">{{ taker.client.English_name }}</h5>
+					  		<p>F: {{ taker.client.Floor }} R: {{ taker.client.Room }}  B: {{ taker.client.Bed }}</p>
+					  	</div>
+					  </div>
+					</div>
+				</li>
+             {% endfor %}
+		</ul>
+		</div> 
+	<!-- // END col -->
+
+</div>
+	<!-- // END row-app -->
+
+</div>
+
+</div>
+
+
+<!-- // Content END -->
+<div class="clearfix"></div>
+
+{% endblock %}
+	
+
+
+
+

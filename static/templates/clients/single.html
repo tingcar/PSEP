@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Contents Start Here -->	
+<div id="content"><h1 class="content-heading bg-white border-bottom">Client Detail</h1>
+<div class="bg-white innerAll border-bottom">
+	<ul class="menubar">
+	    <li><p><span class="text-primary strong text-uppercase">{{ client.English_name }}</span></p></li>
+		<li><a href="/accounts/clients/">All Clients</a></li>
+	</ul>
+</div>
+<div class="innerAll spacing-x2">
+
+	<!-- row-app -->
+	<div class="row row-app">
+
+		<!-- col -->
+		<div class="col-lg-12">
+
+			<div class="box-generic padding-none">
+				<div class="media innerAll">
+				
+					<div class="pull-right btn-group btn-group-xs ">
+					<form method='POST' action='/accounts/clients/edit/'>{% csrf_token %}
+					<input type='hidden' name='iid' id='id_iid' value='{{ client.iid }}'></input>							
+					<button class="pull-right btn btn-default btn-sm"><i class="fa fa-fw fa-edit"></i> Edit</button></form>
+					</div>					
+				    
+					<button class="pull-right btn btn-default btn-sm" onClick="location.href='/accounts/clients/add_client/'"><i class="fa fa-fw fa-plus"></i> Add New</button>		
+	                <img src='{{MEDIA_URL}}{{ client.image }}' class="thumb pull-left" alt="" width="200"/>
+					<div class="media-body innerLR innerT half">
+						<h4 class="media-heading">{{ client.English_name }}</h4>
+						<p>{{ client.Chinese_name }}<br/>Date of Birth:   {{ client.Date_of_Birth }}<br/>
+						Gender: {{ client.Gender }}<br/>Age: {{ client.Age }}<br/>
+						Center: {{ client.Center }}<br/>
+						Floor: {{ client.Floor }}  Room: {{ client.Room }}   Bed: {{ client.Bed }}<br/>
+						<br/>
+						Recent Update: {{ client.updated }}
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="box-generic padding-none">
+			    <div class="media innerAll half">
+			         <h4 class="text-primary strong">Allergy</h4>
+			         <p>{{ client.Allergy }}</p>	
+                     	
+			    </div>
+			</div>
+			<div class="box-generic padding-none">
+				<div class="media innerAll half bg-success">
+				<h4 class="strong margin-none padding-none">Drug List</h4>
+				</div>
+			<ul class="list-group list-group-1 margin-none">
+			{% for treatment in treatments %}
+			    <li class="list-group-item">
+					<div class="media innerAll half">
+					<div class="row">
+					    <div class="col-md-2">
+					    <img src='{{MEDIA_URL}}{{ treatment.medicine.image }}' alt="" class="media-object" height="60" width="60"/>
+					    </div>	
+					    <div class="col-md-10">	
+						<a href="/accounts/medicines/{{ treatment.medicine.iid }}" class="pull-right btn btn-primary btn-stroke btn-xs"><i class="fa fa-arrow-right"></i></a>	
+					  	<div class="media-body">
+					  		<h5 class="media-heading strong">{{ treatment.medicine.Med_name }}</h5>
+					  		<p>HA Code: {{ treatment.medicine.HA_code }}  UNI Code: {{ treatment.medicine.UNI_code }}</p>	
+					  		<p>{{ treatment.medicine.description }}</p>
+					  	</div>
+					  	</div>
+					 </div>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+		</div>
+
+</div>
+	<!-- // END row-app -->
+
+</div>
+
+</div>
+
+
+<!-- // Content END -->
+<div class="clearfix"></div>
+
+{% endblock %}
+	
+
+
+
+

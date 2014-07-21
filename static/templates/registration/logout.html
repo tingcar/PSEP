@@ -1,0 +1,29 @@
+{% extends "loginbase.html" %}
+{% load i18n %}
+
+
+{% block content %}
+
+<div id="content"><h4 class="innerAll margin-none border-bottom text-center"><i class="fa fa-power-off"></i>&nbsp {% trans "Logged out" %}</h4>
+
+
+<!-- <div class="login spacing-x2">
+	<div class="placeholder text-center"><i class="fa fa-times-circle"></i></div>
+</div> -->
+<div class="innerAll spacing-x2">
+	
+	<div class="widget">
+		<div class="widget-body padding-none">
+			<div class="jumbotron bg-white margin-none center">
+				<h3 class="separator bottom">You have been successfully logged out!</h3>
+				<p>Thank you for using <font color="red">Medsupack</font></p>
+				<p>If you have any questions or suggestions on how we can improve Medsupack, we would be happy to get your <a href="{% url 'auth_password_reset' %}">feedback</a>.</p>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block script1 %}
+<link rel="stylesheet" href="/assets/css/admin/module.admin.page.tables.min.css" />
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<script src="/assets/components/library/jquery/jquery.min.js?v=v1.2.3"></script>
+<script src="/assets/components/library/jquery/jquery-migrate.min.js?v=v1.2.3"></script>
+<script src="/assets/components/library/modernizr/modernizr.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/less-js/less.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v1.2.3"></script>
+<script src="/assets/components/library/jquery-ui/js/jquery-ui.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js?v=v1.2.3"></script>	
+{% endblock %}
+
+
+{% block script2 %}
+<script src="/assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/nicescroll/jquery.nicescroll.min.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/breakpoints/breakpoints.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/animations.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/tables/datatables/assets/lib/js/jquery.dataTables.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/tables/datatables/assets/lib/extras/TableTools/media/js/TableTools.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/tables/datatables/assets/lib/extras/ColVis/media/js/ColVis.min.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/tables/datatables/assets/custom/js/DT_bootstrap.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/tables/datatables/assets/custom/js/datatables.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/elements/fuelux-checkbox/fuelux-checkbox.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/elements/bootstrap-select/assets/lib/js/bootstrap-select.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/forms/elements/bootstrap-select/assets/custom/js/bootstrap-select.init.js?v=v1.2.3"></script>
+<script src="/assets/components/modules/admin/tables/classic/assets/js/tables-classic.init.js?v=v1.2.3"></script>
+<script src="/assets/components/plugins/holder/holder.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/sidebar.main.init.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/sidebar.collapse.init.js?v=v1.2.3"></script>
+<script src="/assets/components/helpers/themer/assets/plugins/cookie/jquery.cookie.js?v=v1.2.3"></script>
+<script src="/assets/components/core/js/core.init.js?v=v1.2.3"></script>	
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+<!-- Begin of Content ======================================================================= -->
+<div id="content"><h1 class="content-heading bg-white border-bottom">Prescriptions</h1>
+<div class="innerAll bg-white border-bottom">
+	<ul class="menubar">
+		<li><a href="/accounts/dashboard/">Dashboard</a></li>
+		<li><a href="/accounts/clients/">Clients</a></li>
+		<li><a href="/accounts/medicines/">Medicines</a></li>
+		<li class="active"><a href="/accounts/prescription/">Prescription</a></li>
+		<li><a href="/accounts/records/">Records</a></li>
+	</ul>
+</div>
+
+
+<div class="innerAll spacing-x2">
+  <!-- Widget -->
+  <div class="widget widget-inverse">
+	<div class="widget-head">
+	    <div class="btn-group btn-group-xs pull-right">
+				<button class="btn btn-default pull-right" onClick="location.href='/accounts/prescription/add_prescription/'"><i class="fa fa-plus"></i> Add New Prescription</button>
+	    </div>
+		<h4 class="heading">List of Prescriptions</h4>
+		
+	</div>
+		
+	<div class="widget-body padding-bottom-none">
+	<!-- Table -->
+       <table class="dynamicTable colVis table">
+	       <!-- Table heading -->
+	       <thead class="bg-gray">
+		       <tr>
+		           <th>Client Name</th>
+			       <th>Medicine</th>
+			       <th>Daily Schedule</th>
+		           <th>Weekly Schedule</th>
+	               <th>Quantity</th>
+	               <th>Doctor</th>
+	               <th>Hospital</th>
+	               <th>Operation</th>
+
+		       </tr>
+	       </thead>
+	       <!-- // Table heading END -->
+	
+	       <!-- Table body -->
+	       <tbody>
+    {% for prescription in prescriptions %}	     
+		      <!-- Table row -->
+		      <tr class="gradeX">
+		    	<td>{{ prescription.client.English_name }}</td>
+	            <td>{{ prescription.medicine.Med_name }}</td>
+		    	<td>
+		    	<span class="badge badge-inverse badge-stroke">{{ prescription.Timeslot1 }}</span>
+		    	<span class="badge badge-inverse badge-stroke">{{ prescription.Timeslot2 }}</span>
+		    	<span class="badge badge-inverse badge-stroke">{{ prescription.Timeslot3 }}</span>
+		    	<span class="badge badge-inverse badge-stroke">{{ prescription.Timeslot4 }}</span></td>
+		    	<td>
+		    	{% if prescription.MON %}
+		    	<span class="label label-primary">MON</span>
+		    	{% else %}
+		    	<span class="label label-default">MON</span>
+		    	{% endif %}
+		    	
+		    	{% if prescription.TUE %}
+		    	<span class="label label-primary">TUE</span>
+		    	{% else %}
+		    	<span class="label label-default">TUE</span>
+		    	{% endif %}
+		    	
+		    	{% if prescription.WED %}
+		    	<span class="label label-primary">WED</span>
+		    	{% else %}
+		    	<span class="label label-default">WED</span>
+		    	{% endif %}
+		    	
+		    	{% if prescription.THR %}
+		    	<span class="label label-primary">THR</span>
+		    	{% else %}
+		    	<span class="label label-default">THR</span>
+		    	{% endif %}
+		    	
+		    	{% if prescription.FRI %}
+		    	<span class="label label-primary">FRI</span>
+		    	{% else %}
+		    	<span class="label label-default">FRI</span>
+		    	{% endif %}
+		    	
+		    	{% if prescription.SAT %}
+		    	<span class="label label-primary">SAT</span>
+		    	{% else %}
+		    	<span class="label label-default">SAT</span>
+		    	{% endif %}
+		    	
+		    	{% if prescription.SUN %}
+		    	<span class="label label-primary">SUN</span>
+		    	{% else %}
+		    	<span class="label label-default">SUN</span>
+		    	{% endif %}	    	
+		    	</td>
+		    	<td>{{ prescription.quantity }}</td>
+		    	<td>{{ prescription.doctor }}</td>
+		    	<td>{{ prescription.houspital }}</td>
+		    	<td class="text-left">
+						<div class="btn-group btn-group-xs ">				
+							<form method='POST' action='/accounts/prescription/delete'>{% csrf_token %}
+							<input type='hidden' name='iid' id='id_iid' value='{{ prescription.iid }}'></input>							
+							<button class="btn btn-danger btn-xs "><i class="fa fa-times"></i></button></form>				
+						</div>
+		    	</td>
+	    	</tr>
+		    <!-- // Table row END -->
+    {% endfor %}
+	     </tbody>
+	     <!-- // Table body END -->
+	
+       </table>
+
+    </div>
+    <!-- // Table END -->		
+		
+  </div>
+<!-- // Widget END -->
+	
+</div>
+	
+</div>
+<!-- End of Content ======================================================================= -->
+<div class="clearfix"></div>
+
+{% endblock %}

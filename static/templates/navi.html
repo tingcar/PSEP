@@ -1,0 +1,101 @@
+<div class="navbar navbar-fixed-top navbar-primary main" role="navigation">
+    
+    <!-- Logo and Name -->
+    <div class="navbar-header pull-left">
+        <div class="navbar-brand">
+            <div class="pull-left">
+                <a href="" class="toggle-button toggle-sidebar btn-navbar"><i class="fa fa-bars"></i></a>
+            </div>
+            <a href="index.html?lang=en" class="appbrand innerL">Mesupack</a>
+        </div>
+    </div>
+  
+    <!-- USER Menu -->  
+    <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+            <a href="" class="dropdown-toggle user" data-toggle="dropdown"><img src='{{MEDIA_URL}}{{ profiles.image }}' alt="" class="img-circle" height="42" width="42"/>
+            <span class="hidden-xs hidden-sm"> &nbsp;{{ profiles.English_name }}</span> <span class="caret"></span></a>
+            <ul class="dropdown-menu list pull-right ">
+                <li><a href="/accounts/profile/">Your Account <i class="fa fa-user pull-right"></i></a></li>
+                <li><a href="/accounts/contact/">Get Help <i class="fa fa-question-circle pull-right"></i></a></li>
+                <li><a href="/accounts/logout/">Log out <i class="fa fa-sign-out pull-right"></i></a></li>
+            </ul>
+        </li>
+    </ul>
+    
+    <!-- USER Inbox --> 
+    <ul class="nav navbar-nav navbar-right hidden-xs">
+        <li class="dropdown notification">
+            <a href="#" class="dropdown-toggle menu-icon" data-toggle="dropdown"><i class="fa fa-fw fa-envelope-o"></i><span class="badge badge-primary">1</span></a>
+            <ul class="dropdown-menu inbox">
+                <li class="headline">Inbox</li>
+                <li>
+                    <div class="media">
+                        <a class="pull-left" href="#"><img src="/assets/images/people/50/8.jpg" alt="" class="img-circle media-object"></a>
+                        <div class="media-body">
+                            <a href="" class="strong text-primary"> <i class="fa fa-circle"></i> Jiayu Chen</a> <span>(1)</span><span class="pull-right time-email">24:00 AM</span>
+                            <div class="clearfix"></div>
+                            New functions are coming soon! Feel free to contact the developer Dr. Jiayu Chen.
+                        </div>
+                    </div>    
+                </li>
+            </ul>
+        </li>
+ 
+        <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets//images/lang/en-flat.jpg" /></a>
+            <ul class="dropdown-menu pull-right">
+                <li class="active"><a href="">English</a></li>
+                <li><a href="">Chinese</a></li>
+            </ul>
+        </li>
+        
+        <!-- Signout Button -->
+        <li><a href="/accounts/logout/" class="menu-icon"><i class="fa fa-sign-out"></i></a></li>
+    </ul>
+</div>
+
+
+
+<!-- Sidebar Starts Here -->	
+<div id="menu" class="hidden-print hidden-xs">
+	<div class="sidebar sidebar-default">
+		<div class="user-profile media innerAll">
+			<a href="/accounts/dashboard/" class="pull-left"><img src='{{MEDIA_URL}}{{ profiles.image }}' alt="" class="img-circle" height="60" width="60"/><span class="badge badge-primary">1</span></a>
+			<div class="media-body">
+				<p class="strong">{{ profiles.English_name }}</p>
+				<p class="text-success"><i class="fa fa-fw fa-circle"></i> Online</p>
+			</div>
+			<ul>
+				<li><a href="#"><i class="fa fa-fw fa-user"></i></a></li>
+				<li><a href="#"><i class="fa fa-fw fa-envelope"></i></a></li>
+				<li><a href="#"><i class="fa fa-fw fa-lock"></i></a></li>
+			</ul>
+		</div>
+		
+		<!-- Control Menu -->
+		<div class="sidebarMenuWrapper">
+			<ul class="list-unstyled">
+				<li><a href="/accounts/dashboard/"><i class=" icon-projector-screen-line"></i><span>Dashboard</span></a></li>
+					
+				<li><a href="/accounts/profile/"><i class="icon-user-1"></i><span>Account</span></a></li>
+				
+				<li><a href="/accounts/clients/"><i class="icon-identification"></i><span>Clients</span></a></li>
+				
+				<li><a href="/accounts/medicines/"><i class="icon-perscription"></i><span>Medicines</span></a></li>
+				
+				<li><a href="/accounts/prescription/"><i class="icon-heart-beat"></i><span>Prescription</span></a></li>
+				
+				<li><a href="/accounts/records/"><i class="icon-clipboard"></i><span>Records</span></a></li>								
+				
+				<li><a href="/accounts/QRcode/"><i class="icon-barcode"></i><span>Generate QR</span></a></li>
+				
+				<li><a href=""><i class="icon-time-clock"></i><span>Events</span></a></li>
+				
+				
+							
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End of Sidebar -->	

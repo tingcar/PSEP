@@ -1,0 +1,8 @@
+Supporting Libraries
+
+- Django
+- PIL/Pillow
+- South
+- django-registration
+- django-debug-toolbar
+- reportlab

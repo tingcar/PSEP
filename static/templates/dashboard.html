@@ -1,0 +1,376 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Contents Start Here -->	
+<div id="content"><h1 class="bg-white content-heading border-bottom">Dashboard</h1>
+
+<!-- top menu -->	
+<div class="bg-white innerAll border-bottom">
+	<ul class="menubar">
+		<li class="active"><a href="/accounts/dashboard/">Dashboard</a></li>
+		<li><a href="/accounts/clients/">Clients</a></li>
+		<li><a href="/accounts/medicines/">Medicines</a></li>
+		<li><a href="/accounts/prescription/">Prescription</a></li>
+		<li><a href="/accounts/records/">Records</a></li>
+	</ul>
+</div>
+
+<!-- color blocks -->	
+<div class="innerAll spacing-x2">
+	<div class="row">
+		
+		<!-- 1st block -->
+		<div class="col-md-3 col-sm-6">
+			<div class="panel-3d">
+				<div class="front">
+          
+					<div class="widget text-center">
+						<div class="widget-body padding-none">
+							<div>
+								<div class="innerAll bg-inverse">
+									<p class="lead text-white strong margin-none"><i class="icon-graph-up-1"></i><br/>47,340</p>
+								</div>
+								<div class="innerAll">
+									<button class="btn btn-inverse">View Statistics</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="back">
+
+					<div class="widget widget-inverse widget-scroll" data-scroll-height="165px">
+						<div class="widget-head">
+							<button class="btn btn-xs btn-default pull-right"><i class="fa fa-times"></i></button>
+							<h4 class="heading">Statistics</h4>
+						</div>
+						
+						<div class="widget-body padding-none">
+							<div>
+								<table class="table table-condensed">
+									<!-- Table body -->
+									<tbody>
+									    <!-- Table row -->
+										<tr>
+											<td class="center">Oct</td>
+											<td><strong>27,340<strong></td>
+											<td><a href="#">mosaicpro.biz</a></td>
+										</tr>
+										<!-- Table row -->
+										<tr>
+											<td class="center">Oct</td>
+											<td><strong>10,340<strong></td>	
+											<td><a href="#">themeforest.net</a></td>
+										</tr>
+										<!-- // Table row END -->
+										<!-- Table row -->
+										<tr>
+											<td class="center">Oct</td>
+											<td><strong>1,130<strong></td>
+											<td><a href="#">mosaicpro.biz</a></td>
+										</tr>	
+										
+									</tbody>
+									<!-- Table body END -->	
+								</table>
+								<!-- Table END -->
+							</div>
+
+						</div>
+					</div>
+					
+					
+				</div>
+				<!-- END of back -->
+			</div>
+		</div>
+		<!-- 1st block -->
+		
+		<!-- 2nd block -->
+		<div class="col-md-3 col-sm-6">
+			<div class="panel-3d">
+				<div class="front">
+
+					<div class="widget text-center">
+						<div class="widget-body padding-none">
+							<div>
+								<div class="innerAll bg-default">
+									<p class="lead strong margin-none"><i class="icon-add-to-cart"></i><br/>7 Orders</p>
+								</div>
+								<div class="innerAll">
+									<button class="btn btn-default">View Orders</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				
+				
+				<div class="back">
+					<div class="widget widget-inverse widget-scroll" data-scroll-height="165px">
+						<div class="widget-head">
+							<button class="btn btn-xs btn-default pull-right"><i class="fa fa-times"></i></button>
+							<h4 class="heading">Orders</h4>
+						</div>
+						<div class="widget-body padding-none">
+							<div>
+								<div class="box-generic border-none text-center">
+									<p class="margin-none">Orders Total</p>
+									<p><strong class="text-large text-primary">&euro;99,134</strong></p>
+									<p class="margin-none"><span class="text-success strong">15%</span> <i class="fa fa-fw fa-arrow-up text-success"></i> last 30 days</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END of back -->
+			</div>
+		</div>
+		<!-- 2nd block -->
+		
+		<!-- 3rd block -->
+		<div class="col-md-3 col-sm-6">
+			<div class="panel-3d">
+				<div class="front">
+					
+					<div class="widget text-center">
+						<div class="widget-body padding-none">
+							<div>
+								<div class="innerAll bg-success">
+									<p class="lead strong margin-none text-white"><i class="icon-note-pad"></i><br/>2 Bookings</p>
+								</div>
+								<div class="innerAll">
+									<button class="btn btn-success">View Bookings</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="back">
+					<div class="widget widget-inverse widget-scroll" data-scroll-height="165px">
+						<div class="widget-head">
+							<button class="btn btn-xs btn-default pull-right"><i class="fa fa-times"></i></button>
+							<h4 class="heading">Meetings</h4>
+						</div>
+						<div class="widget-body padding-none">
+							<div>
+								<div class="media innerAll half margin-none">
+		                            <a class="pull-left" href="#">
+		                                <img src="../assets//images/people/50/15.jpg" alt="" class="img-circle media-object"> 
+		                            </a>
+		                            <div class="media-body ">
+		                                <a href="" class="strong text-success"> <i class="fa fa-circle"></i> Jane Smith</a> 
+										<div class="clearfix"></div>
+		                                <em>10:20 AM - 21/11/2013</em>
+		                            </div>
+		                        </div>
+		                        <hr class="margin-none"/>
+
+		                        <div class="media innerAll half margin-none">
+		                            <a class="pull-left" href="#">
+		                                <img src="../assets//images/people/50/19.jpg" alt="" class="img-circle media-object"> 
+		                            </a>
+		                            <div class="media-body ">
+		                                <a href="" class="strong text-primary"> <i class="fa fa-circle"></i> Mary Deidre</a> 
+										<div class="clearfix"></div>
+		                                <em>10:20 AM - 21/11/2013</em>
+		                            </div>
+		                        </div>
+		                    </div>
+						</div>
+					</div>
+				</div>
+				<!-- END of back -->
+			</div>
+		</div>
+		<!-- 3rd block -->
+		
+		<!-- 4th block -->
+		<div class="col-md-3 col-sm-6">
+			<div class="panel-3d">
+				
+				<div class="front">
+					<div class="widget text-center">
+						<div class="widget-body padding-none">
+							<div>
+								<div class="bg-info innerAll">
+									<p class="lead strong margin-none text-white"><i class="icon-envelope-2"></i><br/>4 Messages</p>
+								</div>
+								<div class="innerAll">
+									<button class="btn btn-info">View Messages</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="back">
+					<div class="widget widget-inverse widget-scroll" data-scroll-height="165px">
+						<div class="widget-head">
+							<button class="btn btn-xs btn-default pull-right"><i class="fa fa-times"></i></button>
+							<h4 class="heading">Messages</h4>
+						</div>
+						<div class="widget-body padding-none">					
+							<div>
+								<div class="media innerAll">
+		                            <i class="fa fa-chat fa-2x pull-left disabled"></i>
+		                            <div class="media-body">
+		                                <div class="pull-right label label-default">2 days</div>
+		                                <a href="" class="text-info">Adrian Demian</a> <em>wrote: </em>
+		                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+		                                <a href="" class="btn btn-info btn-xs">read message</a>
+		                            </div>
+		                        </div>
+		                    </div>
+						</div>
+					</div>
+				</div>
+				<!-- back END -->
+				
+			</div>
+		</div>
+		<!-- 4th block -->
+		
+	</div>
+	<!-- 1st row END -->
+
+
+    <!-- 2nd row -->
+	<div class="row">
+	    <!-- left block -->
+		<div class="col-md-9">
+			<div class="widget">
+				<div class="widget-body padding-none">
+                    
+					<div class="row row-merge">
+					    <!-- Statistic Tag -->
+						<div class="col-sm-4">
+							<div class="text-center innerAll">
+								<div class="separator bottom"></div>
+								<div data-percent="60" data-size="140" class="easy-pie inline-block easy-pie-gender primary" data-scale-color="false" data-track-color="#ffffff" data-line-width="8">
+									<div class="value text-center">
+										<span class="strong"><i class="icon-graph-up-1 fa-4x text-primary"></i></span>
+									</div>
+								</div>
+								<div class="separator bottom"></div>
+								<p class="lead"><span class="text-large text-regular">8,320</span> <span class="text-primary">Visits</span></p>
+							</div>
+						</div>
+						
+						<!-- Chart -->
+						<div class="col-sm-8 bg-white">
+
+							<div class="widget-head bg-gray">
+								<div class="btn-group pull-right btn-group-xs">
+									<a href="#chart-simple-lines" class="btn btn-default active" data-toggle="tab"><i class="fa fa-bars"></i></a>
+									<a href="#chart-simple-bars" class="btn btn-default" data-toggle="tab"><i class="fa fa-bar-chart-o"></i></a>
+								</div>
+								
+								<h3 class="heading text-regular"><i class="icon-stocks-up"></i> Statistics</h3>
+							</div>
+							
+							<div class="innerAll">
+								<div class="tab-content ">
+									<div class="tab-pane active" id="chart-simple-lines">
+										<!-- Simple Chart -->
+                                        <div id="chart_simple" class="flotchart-holder"></div>
+									</div>
+		
+									<div class="tab-pane" id="chart-simple-bars">
+										<!-- Simple Chart -->
+                                        <div id="chart_simple_bars" class="flotchart-holder"></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- END of Chart -->
+					</div>
+				</div>
+			</div>
+
+						
+		
+
+
+<!-- Event -->
+<div class="widget widget-inverse widget-chat" data-builder-exclude>
+	<div class="widget-head">
+		<h4 class="heading"><i class="icon-time-clock"></i> Event</h3>
+	</div>
+	<div class="widget-body padding-none border-bottom">
+	
+	<!-- Slim Scroll -->
+	<div class="slim-scroll chat-items" data-scroll-height="235px" data-scroll-size="0">
+		
+		<!-- Media item -->
+		<div class="media innerAll border-bottom">
+			<small class="author"><a href="#" title="" class="strong">Martin</a></small>
+			<img src="../assets/images/people/50/2.jpg" alt="" class="img-circle media-object pull-left">
+			<div class="media-body">
+				<small class="date"><cite>just now</cite></small>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae accumsan mauris. Donec vitae nibh felis, facilisis bibendum sapien.</p>
+			</div>
+		</div>
+		<!-- // Media item END -->
+		
+		<!-- Media item -->
+		<div class="media innerAll border-bottom right">
+			<small class="author"><a href="#" title="" class="strong">John Doe</a></small>
+		    <img src="../assets/images/people/50/5.jpg" alt="" class="img-circle media-object pull-right" > 
+			<div class="media-body">
+				<small class="date"><cite>15 seconds ago</cite></small>
+				<p>In ultricies ante eget tortor euismod vitae molestie eros hendrerit. Cras tristique, orci ac lacinia aliquet, velit risus laoreet lectus, eget sollicitudin metus orci non nulla.</p>
+			</div>
+		</div>
+		<!-- // Media item END -->
+		
+		<!-- Media item -->
+		<div class="media innerAll">
+			<small class="author"><a href="#" title="" class="strong">Ricky</a></small>
+		    <img src="../assets/images/people/50/7.jpg" alt="" class="img-circle media-object pull-left" > 
+			<div class="media-body">
+				<small class="date"><cite>5 minutes ago</cite></small>
+				<p>Pellentesque ac turpis turpis. Aliquam erat volutpat. Proin semper auctor mauris vel tempor. Ut eget turpis neque. Nam ultricies tortor eu odio ultricies euismod.</p>
+			</div>
+		</div>
+		<!-- // Media item END -->
+		
+	</div>
+	<!-- // Slim Scroll END -->
+	
+	</div>	
+</div>
+<!--  Event END -->
+		
+		</div>
+		<!-- left block -->
+		
+		
+		<!-- right block -->
+		<div class="col-md-3">
+			<div class="widget widget-inverse">
+				<div class="widget-head">
+					<h4 class="heading glyphicons calendar"><i></i>Mini Calendar</h4>
+				</div>
+				<div class="widget-body innerAll half">
+					<div id="datepicker-inline"></div>
+				</div>
+			</div>
+		</div>
+		<!-- right block -->
+	
+		
+	</div>
+	<!-- 2nd row END -->
+</div>
+
+
+</div>
+<!-- // Content END -->
+<div class="clearfix"></div>
+{% endblock %}
