@@ -36,7 +36,26 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #my apps
+    'contact',
+    'enbuckets',
+    'profiles',
+
+    #tools
+    'south',
+    'registration',
+    'debug_toolbar',
 )
+
+
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_OPEN = False
+auth_password_reset = '/'
+
+AUTH_PROFILE_MODULE = 'profiles.profile'
+LOGIN_REDIRECT_URL = '/accounts/dashboard/'
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -52,7 +71,7 @@ ROOT_URLCONF = 'PSEP.urls'
 WSGI_APPLICATION = 'PSEP.wsgi.application'
 
 
-# Database
+######## DATABASE #########
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
@@ -78,5 +97,30 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
+# STATIC_URL = '/static/'
+STATIC_URL = '/assets/'
 
-STATIC_URL = '/static/'
+
+MEDIA_URL='/media/'
+
+#static
+MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))),'static','media')
+
+STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))),'static','static-only')
+
+STATICFILES_DIRS = (
+    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))),'static','assets'),
+)
+
+TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))),'static','templates'),
+)
+
+
+
+
+
+
+
+
+

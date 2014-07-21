@@ -5,4 +5,3 @@ Supporting Libraries
 - South
 - django-registration
 - django-debug-toolbar
-- reportlab
