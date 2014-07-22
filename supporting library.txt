@@ -5,3 +5,13 @@ Supporting Libraries
 - South
 - django-registration
 - django-debug-toolbar
+
+
+Sources
+
+- startbootstrap-SB admin 2(Apache License)
+# http://startbootstrap.com/template-overviews/sb-admin-2/
+- font awesome
+# http://fortawesome.github.io/Font-Awesome/
+- glyphicons
+# http://glyphicons.com/license/
