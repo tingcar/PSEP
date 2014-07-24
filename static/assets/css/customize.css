@@ -252,7 +252,18 @@ Author: Jiayu Chen
    margin-top: 20px;
 }
 
-
+#footer {
+  position: fixed;
+  z-index: 2;
+  height: 40px;
+  line-height: 40px;
+  background: #f8f8f8;
+  bottom: 0;
+  left: 250px;
+  right: 0;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
 
 
 /* ********************************************************** */
