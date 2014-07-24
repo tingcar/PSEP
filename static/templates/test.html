@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">User Profile</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#Account" data-toggle="tab"><i class="fa fa-user"></i> Account</a></li>
+                <li class=""><a href="#Password" data-toggle="tab"><i class="fa fa-key"></i> Password</a></li>
+                <li class=""><a href="#Inquiry" data-toggle="tab"><i class="fa fa-tag"></i> Inquiry</a></li>
+            </ul>
+
+
+            <div id="all_tabs" class="tab-content">
+
+                <div class="tab-pane fade active in" id="Account">
+                    <p><br>Insert Account Information Here !<br></p>
+                    <p><br>Insert Account Information Here !<br></p>
+                    <p><br>Insert Account Information Here !<br></p>
+                    <p></p>
+                </div>
+
+                <div class="tab-pane fade" id="Password">
+                    <p>Update Password</p>
+                    <form class="bs-example row" role="form" novalidate="novalidate">
+
+                    </form>
+                    <p></p>
+                </div>
+
+                <div class="tab-pane fade active in" id="Inquiry">
+                    <p><br>Insert Account Information Here !<br></p>
+                    <p><br>Insert Account Information Here !<br></p>
+                    <p><br>Insert Account Information Here !<br></p>
+                    <p></p>
+                </div>
+            </div>
+
+        </div>
+
+{% endblock %}

@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     (r'^accounts/',include('registration.backends.default.urls')),
 
     url(r'^contact/', 'contact.views.contact_us', name='contact_us'),
+    url(r'^test/', 'contact.views.test', name='test'),
     url(r'^accounts/dashboard/', 'profiles.views.dashboard',name='dashboard'),
     url(r'^accounts/profile/', include('profiles.urls')),
     #url(r'^accounts/enbuckets/', include('enbuckets.urls')),

@@ -10,3 +10,8 @@ def contact_us(request):
         save_form.save()
         
     return render_to_response('contact/contact_us.html', locals(), context_instance=RequestContext(request))
+
+
+def test(request):
+        
+    return render_to_response('test.html', locals(), context_instance=RequestContext(request))
