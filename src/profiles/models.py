@@ -10,16 +10,17 @@ class Profile(models.Model):
     English_name = models.CharField(max_length=50)
     Chinese_name = models.CharField(max_length=50, null=True, blank=True)
     is_activate = models.BooleanField(default=True)
-    Post = models.CharField(max_length=200, null=True, blank=True)
+    Distription = models.CharField(max_length=200, null=True, blank=True)
+    Address = models.CharField(max_length=200, null=True, blank=True)
+    Email = models.CharField(max_length=50, null=True, blank=True)
+    Phone_number = models.CharField(max_length=20,null=True, blank = True)
+
+
     slug = models.SlugField()
     image = models.ImageField(upload_to='users/images/',null=True)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     
-    Timeslot1 = models.IntegerField(null=True, default=1)
-    Timeslot2 = models.IntegerField(null=True, default=1)
-    Timeslot3 = models.IntegerField(null=True, default=1)
-    Timeslot4 = models.IntegerField(null=True, default=1)
     
     
     def __unicode__(self,):

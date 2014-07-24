@@ -19,10 +19,6 @@ def updateprofile(request):
     profiles.Chinese_name=request.POST['Chinese_name']
     profiles.Initials=request.POST['Initials']
     profiles.Post=request.POST['Post']
-    profiles.Timeslot1=request.POST['Timeslot1']
-    profiles.Timeslot2=request.POST['Timeslot2']
-    profiles.Timeslot3=request.POST['Timeslot3']
-    profiles.Timeslot4=request.POST['Timeslot4']
      
     try:
         profiles.image = request.POST['image']
