@@ -23,5 +23,5 @@ urlpatterns = patterns('',
     url(r'^test/', 'contact.views.test', name='test'),
     url(r'^accounts/dashboard/', 'profiles.views.dashboard',name='dashboard'),
     url(r'^accounts/profile/', include('profiles.urls')),
-    #url(r'^accounts/enbuckets/', include('enbuckets.urls')),
+    url(r'^accounts/enbucket/', include('enbuckets.urls')),
 )
