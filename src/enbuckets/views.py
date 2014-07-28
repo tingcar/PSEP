@@ -9,4 +9,8 @@ def enbucket(request):
     except:
         return  HttpResponseRedirect('/accounts/login/')
     enbuckets = Enbuck.objects.filter(user=request.user)
+    for enbucket in enbuckets:
+    	enbucket.strtime = enbucket.entime.strftime("%Y,%m,%d,%H,%M")
+    	print enbucket.entime
+    	print enbucket.strtime
     return render_to_response('enbuckets/enbucket.html', locals(), context_instance=RequestContext(request))
