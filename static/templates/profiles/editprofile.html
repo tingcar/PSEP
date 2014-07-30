@@ -1,5 +1,67 @@
 {% extends 'base.html' %}
 
+{% block script1 %} 
+<head>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Power Smart Energy Management Platform">
+    <meta name="author" content="Jiayu Chen">
+
+    <title>Power Smart Energy Management Platform</title>
+
+
+    <!-- Bootstrap Core CSS -->
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/assets/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <!-- Not Added -->
+    <link href="/assets/css/plugins/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!-- Add customized style here -->
+    <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/assets/css/customize.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <!-- Important need to keep here -->
+    <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="/assets/js/jquery-1.11.0.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Additional Libraries -->
+    <script src="/assets/js/plugins/bootbox.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.btn-success').on('click', function(){
+                bootbox.alert("Message was sucessfully submitted!")
+            })
+        });
+    </script>
+
+
+</head>
+{% endblock %}
+
+
+
+
 {% block content %}
 
         <div id="page-wrapper">
@@ -110,10 +172,31 @@
                     <div class="separator bottom" style="padding:0 0 60px"></div>   
                         <div class="col-md-8 col-md-offset-2">
                             <div class="jumbotron bg-white margin-none center" style="background-color: #F0FFFF">
-                                <form role="form" method="post" action="/accounts/profile/update">
-                                <p> add here </p> 
+                                <form role="form" method="post" action="/accounts/profile/submit">
+                                    {% csrf_token %} 
+                                    <h4 style="color: #4169E1 ">Contact the supporters</h4>
+                                    <div class="separator bottom"></div> 
+                                    <h5>Your Full Name</h5>
+                                    <input class="form-control" id="id_full_name" name="full_name" type="text" placehoder="Type your name here" style="width: 60%;">
+
+                                    <h5>Your Organization</h5>
+                                    <input class="form-control" id="id_organization" name="organization" type="text" placehoder="Type your company name here" style="width: 60%;">
+
+                                    <h5>Email</h5>
+                                    <div class="form-group input-group">
+                                    <span class="input-group-addon"> @ </span><input class="form-control" id="id_email" name="email" type="text" placehoder="{{ profiles.Email }}" style="width: 60%;">
+                                    </div>
+
+                                    <h5>Message</h5><textarea class="form-control" id="id_message" name="message" placehoder="Add your message"></textarea>
+                                    <div class="separator bottom"></div> 
+                                    <div class="separator bottom"></div>
+
+                                    
+                                    <button type="submit" class="btn btn-success pull-left" value="submit" >submit</button>
 
                                 </form>
+
+
                             </div>
                         </div>
                 </div>

@@ -15,3 +15,5 @@ Sources
 # http://fortawesome.github.io/Font-Awesome/
 - glyphicons
 # http://glyphicons.com/license/
+- highcharts
+- bootbox
