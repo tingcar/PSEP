@@ -6,6 +6,7 @@ class Contact(models.Model):
     organization = models.CharField(max_length = 100)
     email = models.EmailField()
     message = models.CharField(max_length=500)
+    iid = models.CharField(max_length=20, null=True, blank=True)
     
     def __unicode__(self,):
         return "Message from: " + str(self.organization)+" Email: "+str(self.email)

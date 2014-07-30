@@ -52,12 +52,15 @@
      <script type="text/javascript">
         $(function () {
                 $('#container').highcharts({
+                    chart: {
+                        zoomType: 'x'
+                    },
                     title: {
-                        text: 'Daily Energy Consumption',
+                        text: 'Summary of Energy Consumption',
                         x: -20 //center
                     },
                     subtitle: {
-                        text: 'Power Smart Energy Conpetition',
+                        text: 'Power Smart Energy Competition',
                         x: -20
                     },
                     xAxis: {
@@ -119,7 +122,7 @@
 <div id="page-wrapper" style="background-color: #ffffff">
     <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">User Profile</h1>
+        <h3 class="page-header">Energy Consumption</h3>
     </div>
     <!-- /.col-lg-12 -->
     </div>

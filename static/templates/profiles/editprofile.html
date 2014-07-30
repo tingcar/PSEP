@@ -5,7 +5,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">User Profile</h1>
+                    <h3 class="page-header">User Profile</h3>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -20,25 +20,102 @@
             <div id="all_tabs" class="tab-content">
 
                 <div class="tab-pane fade active in" id="Account">
-                    <p><br>Insert Account Information Here !<br></p>
-                    <p><br>Insert Account Information Here !<br></p>
-                    <p><br>Insert Account Information Here !<br></p>
-                    <p></p>
+                        <form role="form" method="post" action="/accounts/profile/update">              
+                           {% csrf_token %} 
+                            <div class="widget-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="separator bottom"></div>
+                                        <div class="separator bottom"></div>
+                                        <h5>English Name</h5>
+                                        <input class="form-control" id="id_English_name" name="English_name" type="text" value="{{ profiles.English_name }}" style="width: 90%;">
+                                        <div class="separator bottom"></div>
+                                        
+                                        <h5>Chinese Name</h5>
+                                        <input class="form-control" id="id_Chinese_name" name="Chinese_name" type="text" value="{{ profiles.Chinese_name }}" style="width: 90%;">
+                                        <div class="separator bottom"></div>
+                                        
+                                        <h5>Initials</h5>
+                                        <input class="form-control" id="id_Initials" name="Initials" type="text" value="{{ profiles.Initials }}" style="width: 90%;">
+                                        <div class="separator bottom"></div>
+
+                                        <h5>Phone Number</h5>
+                                        <input class="form-control" id="id_Phone_number" name="Phone_number" type="text" value="{{ profiles.Phone_number }}" style="width: 90%;">
+                                        <div class="separator bottom"></div>
+                                        
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="separator bottom"></div>
+                                        <div class="separator bottom"></div>
+                                        <img src='{{MEDIA_URL}}{{ profiles.image }}' alt="" width="150"/>
+                                        <div class="separator bottom"></div>
+                                        <div class="separator bottom"></div>
+                                        
+                                        <h5>Update Image</h5>
+                                        <div class="fileupload fileupload-new margin-none" data-provides="fileupload">
+                                        <span class="btn btn-default btn-file"><input id="id_image" name="image" type="file" class="margin-none" /></span>
+                                        <span class="fileupload-preview"></span>
+                                        </div>
+                                        <div class="separator bottom"></div>
+                                        <div class="separator bottom"></div>    
+                                    </div> 
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        
+                                        <h5>Email</h5>
+                                        <div class="form-group input-group">
+                                        <span class="input-group-addon"> @ </span><input class="form-control" id="id_Email" name="Email" type="text" value="{{ profiles.Email }}" style="width: 90%;">
+                                        </div>
+
+                                        <h5>Description</h5>
+                                        <div class="form-group input-group">
+                                        <span class="input-group-addon">Des</span><input class="form-control" id="id_Distription" name="Distription" type="text" value="{{ profiles.Distription }}" style="width: 90%;">
+                                        </div>
+
+                                        <h5>Address</h5>
+                                        <div class="form-group input-group">
+                                        <span class="input-group-addon">Add</span><input class="form-control" id="id_Address" name="Address" type="text" value="{{ profiles.Address }}" style="width: 90%;">
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="separator bottom" style="padding:0 0 200px"></div>
+                                        <button type="submit" class="btn btn-info pull-right" value="submit">update</button>
+                                        <a href="/accounts/dashboard/" class="btn btn-inverse pull-right">cancel</a>
+                                    </div>
+                                </div>
+                            </div>            
+                                       
+                        </form>
+
                 </div>
 
                 <div class="tab-pane fade" id="Password">
                     <p>Update Password</p>
                     <form class="bs-example row" role="form" novalidate="novalidate">
+                        
+                        <div class="separator bottom"></div>
+                        <h5>English Name</h5>
+                        <input class="form-control" id="id_English_name" name="English_name" type="text" value="{{ profiles.English_name }}" style="width: 90%;">
+                        <div class="separator bottom"></div>
 
                     </form>
                     <p></p>
                 </div>
 
-                <div class="tab-pane fade active in" id="Inquiry">
-                    <p><br>Insert Account Information Here !<br></p>
-                    <p><br>Insert Account Information Here !<br></p>
-                    <p><br>Insert Account Information Here !<br></p>
-                    <p></p>
+                <div class="tab-pane fade" id="Inquiry">
+                    <div class="separator bottom" style="padding:0 0 60px"></div>   
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="jumbotron bg-white margin-none center" style="background-color: #F0FFFF">
+                                <form role="form" method="post" action="/accounts/profile/update">
+                                <p> add here </p> 
+
+                                </form>
+                            </div>
+                        </div>
                 </div>
             </div>
 
