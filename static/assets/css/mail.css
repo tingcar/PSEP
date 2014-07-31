@@ -1,0 +1,47 @@
+.innerAll {
+    position: relative;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #efefef;
+
+}
+
+.menubar {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menubar>li {
+	display: inline-block;
+	font-size: 18px;
+}
+
+.menubar>li>a {
+	text-decoration: none;
+	color: #878787;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	display: block;
+}
+
+.col-separator-h {
+height: 15px;
+border-left: none;
+border-right: none;
+position: relative;
+background-color: #f8f8f8;
+border-bottom: 1px solid #efefef;
+}
+
+.label.label-inverse {
+background: #424242;
+}
+
+.label.label-inverse.label-stroke {
+background: none;
+color: #424242;
+border: 1px solid #424242;
+}

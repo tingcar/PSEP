@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n %}
+
 {% block script1 %} 
 <head>
     
@@ -30,6 +30,8 @@
     <link href="/assets/css/customize.css" rel="stylesheet">
 
 
+
+
     <!-- Custom Fonts -->
     <!-- Important need to keep here -->
     <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -55,10 +57,33 @@
     });  
     </script>
 
-
 </head>
 {% endblock %}
 
+
+
+{% block script2 %} 
+<!-- Metis Menu Plugin JavaScript -->
+<script src="/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="/assets/js/plugins/morris/raphael.min.js"></script>
+<script src="/assets/js/plugins/utils/popover.js"></script>
+    <!-- Custom Theme JavaScript -->
+<script src="/assets/js/sb-admin-2.js"></script>
+
+<script>
+    // tooltip demo
+    $('.tooltip-demo').tooltip({
+        selector: "[data-toggle=tooltip]",
+        container: "body"
+    })
+
+    // popover demo
+    $("[data-toggle=popover]")
+        .popover()
+</script>
+{% endblock %}
 
 
 
@@ -68,6 +93,26 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h3 class="page-header">User Profile</h3>
+                </div>
+                <div class="tooltip-demo">
+                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+
+
+                                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="">
+                                    Popover on left
+                                </button>
+                                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="">
+                                    Popover on top
+                                </button>
+                                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="">
+                                    Popover on bottom
+                                </button>
+                                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover768559">
+                                    Popover on right
+                                </button>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

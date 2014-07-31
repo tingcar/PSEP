@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+
+
+{% block script1 %} 
+<head>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Power Smart Energy Management Platform">
+    <meta name="author" content="Jiayu Chen">
+
+    <title>Power Smart Energy Management Platform</title>
+
+
+    <!-- Bootstrap Core CSS -->
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/assets/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <!-- Not Added -->
+    <link href="/assets/css/plugins/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!-- Add customized style here -->
+    <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/assets/css/customize.css" rel="stylesheet">
+    <link href="/assets/css/mail.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <!-- Considering add d3.js -->
+    <link href="/assets/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <!-- Important need to keep here -->
+    <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="/assets/js/jquery-1.11.0.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <script src="/assets/js/plugins/perfectscrollbar.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
+        <!-- Custom Theme JavaScript -->
+    <script src="/assets/js/sb-admin-2.js"></script>
+
+</head>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div id="page-wrapper" style="background-color: #ffffff; padding: 0 10px;">
+    <div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Inbox</h3>
+    </div>
+    <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="bg-white innerAll border-bottom">
+    <ul class="menubar">
+        <li><a href="index.html?lang=en&amp;v=v1.2.4-rc1">Inbox</a></li>
+        <li><a href="#"><span class="badge badge-primary pull-right">30</span> Outbox</a></li>
+        <li><a href="#">Compose</a></li>
+    </ul>
+    </div>
+    <div class="col-separator-h"></div>
+
+
+    <div class="col-separator" style="overflow-y: hidden; outline: none;">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="box" >                                            
+                                        <div class="innerAll border-bottom" style="padding-bottom: 10px;">
+                                            <span class="pull-right">You have <strong class="text-danger">5 new</strong> emails</span>
+                                            <span class="label label-primary">INBOX</span>
+                                        </div>
+
+                                        <div class="list-group">
+ 
+                                            <a href="#" class="list-group-item">
+                                                <img src="" alt="" width="35" class="thumb img-responsive img-circle pull-left">
+                                                <span class="media-body">
+                                                    <span class="label label-inverse label-stroke pull-right">29 Oct</span>
+                                                    <h4 class="">Molestias Architecto <i class="icon-flag text-primary icon-2x"></i></h4>
+                                                    <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, libero  <span class="strong text-regular"><i class="fa fa-paperclip"></i> 2</span></p>
+                                                </span>
+                                            </a>
+
+                                            <a href="#" class="list-group-item">
+                                                <span class="media">
+                                                    <img src="" alt="" width="35" class="thumb img-responsive img-circle pull-left">
+                                                    <span class="media-body">
+                                                        <span class="label label-inverse pull-right">28 Oct</span>
+                                                        <h4 class=" strong">Corrupti Officiis <i class="icon-flag text-primary icon-2x"></i></h4>
+                                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, libero </p>
+                                                    </span>
+                                                </span>
+                                            </a>
+
+                                            <a href="#" class="list-group-item">
+                                                <span class="media">
+                                                    <img src="" alt="" width="35" class="thumb img-responsive img-circle pull-left">
+                                                    <span class="media-body">
+                                                        <span class="label label-inverse pull-right">27 Oct</span>
+                                                        <h4 class=" strong">Velit Nostrum <i class="icon-flag text-primary icon-2x"></i></h4>
+                                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, libero </p>
+                                                    </span>
+                                                </span>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div> 
+                                <!-- // END col -->
+
+                                <div class="col-md-8">
+                                        
+                                        <div class="innerAll border-bottom">
+                                            <div class="email-content">
+                                                <div class="pull-right btn-group btn-group-sm">
+                                                    <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                                                </div>
+                                                <div class="from">
+                                                    <h5><strong style="color: #1E90FF;">Adrian Demian </strong><span>(contact@mosaicpro.biz)</span></h5>
+                                                    <span>To: YOU</span>
+                                                </div>
+                                                <strong>Title</strong>      
+                                            </div>
+                                        </div>
+
+                                        <div class="innerAll">
+                                            <div style="padding-bottom: 20px;"></div>
+                                            <div class="innerAll">
+                                                <p>Hi Adrian,</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, libero corporis ipsam voluptatibus suscipit eos expedita sapiente omnis voluptatum ea! Culpa, vitae eaque quis modi voluptatum quisquam ullam. Modi, tempora!</p>
+                                                <p class="text-muted margin-none">Regards,<br>mosaicpro <br>Director @ mosaicpro.biz<br>www.mosaicpro.biz</p>
+                                            </div>
+                                        </div>
+                                        <div class="innerAll border-top">
+                                            <p class="margin-none innerAll text-faded"><i class="fa fa-quote-left fa-4x pull-left"></i> Aliquam rutrum, sem at scelerisque tempor, nulla diam pulvinar tortor, id pulvinar massa velit eu purus. Curabitur eu fringilla diam, sed suscipit lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras iaculis enim vel odio imperdiet faucibus. Aliquam erat volutpat.</p>
+                                        </div>
+                                        <div class="innerAll bg-gray border-top">
+                                            <div class="media inline-block margin-none">
+                                                <div class="innerLR">
+                                                    <i class="fa fa-paperclip pull-left fa-2x"></i>
+                                                    <div class="media-body">
+                                                        <div><a href="" class="strong text-regular">Project.zip</a></div>
+                                                        <span>15 MB</span>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                            <div class="media inline-block margin-none">
+                                                <div class="innerLR border-left">
+                                                    <i class="fa fa-file pull-left fa-2x"></i>
+                                                    <div class="media-body">
+                                                        <div><a href="" class="strong text-regular">Contract.pdf</a></div>
+                                                        <span>244 KB</span>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="padding-bottom: 50px;"></div>
+                                        <div class="col-separator-h"></div>
+
+                                </div> <!-- end col 2 -->
+                            </div>
+
+                        </div> 
+
+</div>
+        
+
+
+
+
+    
+
+
+
+{% endblock %}
+
+{% block script2 %} 
+{% endblock %}
