@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block script1 %} 
 <head>
     
@@ -44,15 +44,15 @@
     <script src="/assets/js/bootstrap.min.js"></script>
 
     <!-- Additional Libraries -->
-    <script src="/assets/js/plugins/bootbox.min.js"></script>
+    <script src="/assets/js/plugins/utils/bootbox.min.js"></script>
 
 
     <script type="text/javascript">
-        $(document).ready(function(){
-            $('.btn-success').on('click', function(){
-                bootbox.alert("Message was sucessfully submitted!")
-            })
+    $(document).ready(function(){
+        $(".alert").on('closed.bs.alert', function () {
+            sessionStorage.removeItem("message");
         });
+    });  
     </script>
 
 
@@ -153,18 +153,56 @@
                                        
                         </form>
 
+
+
+                        <div class="separator bottom"></div> 
+                        <div class="separator bottom"></div>
+                        {% if request.session.message %}
+                            {% if request.session.message == "Your message has been submitted !" %}
+                                <div class="alert alert-success alert-dismissable">
+                                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                        &times;
+                                   </button>
+                                   {{ request.session.message }}
+                                </div>
+                            {% elif request.session.message == "Your password has been changed !" %}
+                                 <div class="alert alert-success alert-dismissable">
+                                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                        &times;
+                                   </button>
+                                   {{ request.session.message }}
+                                </div>
+                            {% else %}
+                                <div class="alert alert-danger alert-dismissable">
+                                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                        &times;
+                                   </button>
+                                   {{ request.session.message }}
+                                </div>
+                             {% endif %}
+                        {% endif %}
+
                 </div>
 
                 <div class="tab-pane fade" id="Password">
-                    <p>Update Password</p>
-                    <form class="bs-example row" role="form" novalidate="novalidate">
-                        
-                        <div class="separator bottom"></div>
-                        <h5>English Name</h5>
-                        <input class="form-control" id="id_English_name" name="English_name" type="text" value="{{ profiles.English_name }}" style="width: 90%;">
-                        <div class="separator bottom"></div>
-
-                    </form>
+                    <div class="separator bottom"></div>
+                    <h4>Update Password</h4>
+                    <div class="separator bottom"></div> 
+                    <form role="form" method ="post" action="/accounts/profile/changepass">      
+                            {% csrf_token %}  
+                            <div class="form-group">
+                                <label>Oldpassword</label>
+                                <input type="password" class="form-control" id="id_oldpassword" name="oldpassword" placeholder="Enter your old password" style="width: 20%;">
+                                <div class="separator bottom"></div> 
+                                <label>Newpassword</label>
+                                <input type="password" class="form-control" id="id_newpassword1" name="newpassword1" placeholder="Enter your new password" style="width: 20%;">
+                                <div class="separator bottom"></div> 
+                                <label>Retype Newpassword</label>
+                                <input type="password" class="form-control" id="id_newpassword2" name="newpassword2" placeholder="Enter your new password" style="width: 20%;">
+                                <div class="separator bottom"></div> 
+                            </div>
+                            <button type="submit" class="btn btn-info" value="submit" >Update</button>
+                        </form>
                     <p></p>
                 </div>
 

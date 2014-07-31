@@ -6,6 +6,7 @@ urlpatterns = patterns('profiles.views',
     #url(r'^medicines/', include('medicines.urls')),
     url(r'^update$','updateprofile',name='updateprofile'),   
     url(r'^submit$','submitcontact',name='submitcontact'),
+    url(r'^changepass$','changepassword',name='changepassword'),
     url(r'^$','userprofile',name='userprofile'),
     
 )

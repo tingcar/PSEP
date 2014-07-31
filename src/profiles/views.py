@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Profile
 from contact.models import Contact
 from PSEP.utils import id_generator
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 
 def dashboard(request):        
     try:
@@ -39,7 +41,12 @@ def userprofile(request):
         profiles = Profile.objects.get(user=request.user)
     except:
         return  HttpResponseRedirect('/accounts/login/')
-    print request.POST
+
+    try:
+        print request.session['message']
+    except:
+        pass
+    
     return render_to_response('profiles/editprofile.html', locals(), context_instance=RequestContext(request))
 
 #change password
@@ -53,15 +60,35 @@ def submitcontact(request):
 
     iid = id_generator() + id_generator()
     contacts = Contact()
-    print request.POST
     contacts.full_name = request.POST['full_name']
     contacts.organization = request.POST['organization']
     contacts.email = request.POST['email']
     contacts.message = request.POST['message']
-    print request.POST['message']
     contacts.iid = iid
-    print request.POST
     contacts.save()
 
-    return render_to_response('profiles/editprofile.html', locals(), context_instance=RequestContext(request))
+    message = "Your message has been submitted !"
+    request.session['message'] = message
+
+    return  HttpResponseRedirect('/accounts/profile/')
+
+
+def changepassword(request):
+    try:
+        profiles = Profile.objects.get(user=request.user)
+    except:
+        return  HttpResponseRedirect('/accounts/login/')
+    
+    if authenticate(username=request.user.username, password=request.POST['oldpassword']):
+        if request.POST['newpassword1'] == request.POST['newpassword2']:
+            message = "Your password has been changed !"
+            u = User.objects.get(username__exact=request.user.username)
+            u.set_password(request.POST['newpassword1'])
+            u.save()
+        else:
+            message = "The new passwords entered are inconstant !"
+    else: 
+        message = "Please enter the correct password !"
+    request.session['message'] = message
+    return HttpResponseRedirect('/accounts/profile/')   
 
