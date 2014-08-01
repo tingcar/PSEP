@@ -6,6 +6,7 @@ from profiles.models import Profile
 def benchmark(request):        
     try:
         profiles = Profile.objects.get(user=request.user)
+        internalmails_short = InternalMail.objects.filter(user=request.user)[0:3]
     except:
         return  HttpResponseRedirect('/accounts/login/')
 

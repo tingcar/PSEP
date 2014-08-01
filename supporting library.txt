@@ -5,6 +5,7 @@ Supporting Libraries
 - South
 - django-registration
 - django-debug-toolbar
+- dajax
 
 
 Sources

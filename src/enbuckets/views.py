@@ -6,6 +6,7 @@ from .models import Enbuck
 def enbucket(request):        
     try:
         profiles = Profile.objects.get(user=request.user)
+        internalmails_short = InternalMail.objects.filter(user=request.user)[0:3]
     except:
         return  HttpResponseRedirect('/accounts/login/')
     enbuckets = Enbuck.objects.filter(user=request.user).order_by('entime')

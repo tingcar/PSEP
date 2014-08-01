@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 def dashboard(request):        
     try:
         profiles = Profile.objects.get(user=request.user)
+        internalmails_short = InternalMail.objects.filter(user=request.user)[0:3]
     except:
         return  HttpResponseRedirect('/accounts/login/')
     print request.user.password
@@ -18,6 +19,7 @@ def dashboard(request):
 def updateprofile(request):
     try:
         profiles = Profile.objects.get(user=request.user)
+        internalmails_short = InternalMail.objects.filter(user=request.user)[0:3]
     except:
         return  HttpResponseRedirect('/accounts/login/')
     
@@ -39,6 +41,7 @@ def updateprofile(request):
 def userprofile(request):
     try:
         profiles = Profile.objects.get(user=request.user)
+        internalmails_short = InternalMail.objects.filter(user=request.user)[0:3]
     except:
         return  HttpResponseRedirect('/accounts/login/')
 
@@ -55,6 +58,7 @@ def userprofile(request):
 def submitcontact(request):
     try:
         profiles = Profile.objects.get(user=request.user)
+        internalmails_short = InternalMail.objects.filter(user=request.user)[0:3]
     except:
         return  HttpResponseRedirect('/accounts/login/')
 
@@ -76,6 +80,7 @@ def submitcontact(request):
 def changepassword(request):
     try:
         profiles = Profile.objects.get(user=request.user)
+        internalmails_short = InternalMail.objects.filter(user=request.user)[0:3]
     except:
         return  HttpResponseRedirect('/accounts/login/')
     
