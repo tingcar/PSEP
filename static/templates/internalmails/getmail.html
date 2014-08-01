@@ -1,0 +1,32 @@
+
+
+
+
+<div id="mailbox">
+
+    <div class="innerAll border-bottom">
+        <div class="email-content">
+            <div class="pull-right btn-group btn-group-sm">
+                <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+            </div>
+            <div class="from">
+                <h5><strong style="color: #1E90FF;">{{ emailget.From }} </strong><span>({{ emailget.FromEmail }})</span></h5>
+                <h6>Time Received: {{ emailget.timestamp }}</h6>
+                <span>To: {{ profiles.user.username }}</span>
+            </div>
+            <strong>{{ emailget.Title }}</strong>      
+        </div>
+    </div>
+
+    <div class="innerAll">
+        <div style="padding-bottom: 20px;"></div>
+        <div class="innerAll">
+            <p> {{ emailget.Content }}</p>
+            <p class="text-muted margin-none">{{ emailget.Address }}</p>
+        </div>
+    </div>
+
+    <div style="padding-bottom: 50px;"></div>
+    <div class="col-separator-h"></div>
+
+</div>

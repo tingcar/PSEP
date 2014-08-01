@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response, RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from profiles.models import Profile
 from .models import Enbuck
+from internalmail.models import InternalMail
 
 def enbucket(request):        
     try:

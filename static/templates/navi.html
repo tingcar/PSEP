@@ -25,8 +25,8 @@
 
                         {% for internalmail in internalmails_short %}
                         <li>
-                            <a href="#">
-                                <div>
+                            <a onclick="return false">
+                                <div style="display: block;">
                                     <strong>{{ internalmail.From }}</strong>
                                     <span class="pull-right text-muted">
                                         <em>{{ internalmail.timestamp.date }}</em>
@@ -40,7 +40,7 @@
 
                         
                         <li>
-                            <a class="text-center" href="#">
+                            <a class="text-center" href="/accounts/internalmail/">
                                 <strong>Read All Messages</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>

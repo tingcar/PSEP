@@ -12,6 +12,7 @@ def Maillist(request):
         return  HttpResponseRedirect('/accounts/login/')
 
     internalmails = InternalMail.objects.filter(user=request.user)
+    internalmailfirst = InternalMail.objects.filter(user=request.user)[0]
+    totalnumber = len(internalmails.filter(is_read=False))
     
-
     return render_to_response('internalmails/internalmail.html', locals(), context_instance=RequestContext(request))

@@ -54,7 +54,19 @@
     <script src="/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
         <!-- Custom Theme JavaScript -->
     <script src="/assets/js/sb-admin-2.js"></script>
+    
 
+    {% load dajaxice_templatetags %}
+    <script src="/static/dajax/jquery.dajax.core.js"></script>
+
+    {% dajaxice_js_import %}
+<script>
+    var carname = " ";
+    function send_form(iid){
+    carname = iid
+    Dajaxice.internalmail.email_get(Dajax.process,{'iid': carname });
+}
+</script>
 </head>
 {% endblock %}
 
@@ -82,11 +94,11 @@
 
     <div class="col-separator" style="overflow-y: hidden; outline: none;">
 
-        <div class="row">
+        <div class="row" style="margin-right: 0px; margin-left: 0px;">
             <div class="col-md-4">
                 <div class="box" >                                            
                     <div class="innerAll border-bottom" style="padding-bottom: 10px;">
-                        <span class="pull-right">You have <strong class="text-danger">5 new</strong> emails</span>
+                        <span class="pull-right">You have <strong class="text-danger">{{ totalnumber }} new</strong> emails</span>
                         <span class="label label-primary">INBOX</span>
                     </div>
 
@@ -94,10 +106,14 @@
 
                         {% for internalmail in internalmails %}
 
-                        <a href="#" class="list-group-item">
+                        <a href="#"  class="list-group-item" onclick="send_form('{{ internalmail.Ticketid }}');">
                             <img src="" alt="" width="35" class="thumb img-responsive img-circle pull-left">
                             <span class="media-body">
+                                {% if internalmail.is_read %}
                                 <span class="label label-inverse label-stroke pull-right">{{ internalmail.timestamp.date }}</span>
+                                {% else %}
+                                <span class="label label-inverse pull-right">{{ internalmail.timestamp.date }}</span>
+                                {% endif %}
                                 <h4 class="">{{ internalmail.Title }} <i class="icon-flag text-primary icon-2x"></i></h4>
                                 <p class="list-group-item-text">{{ internalmail.Content }}<span class="strong text-regular"><i class="fa fa-paperclip"></i> 2</span></p>
                             </span>
@@ -105,36 +121,13 @@
 
                         {% endfor %}
 
-                        <a href="#" class="list-group-item">
-                            <span class="media">
-                                <img src="" alt="" width="35" class="thumb img-responsive img-circle pull-left">
-                                <span class="media-body">
-                                    <span class="label label-inverse pull-right">28 Oct</span>
-                                    <h4 class=" strong">Corrupti Officiis <i class="icon-flag text-primary icon-2x"></i></h4>
-                                    <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, libero </p>
-                                </span>
-                            </span>
-                        </a>
-
-                        <a href="#" class="list-group-item">
-                            <span class="media">
-                                <img src="" alt="" width="35" class="thumb img-responsive img-circle pull-left">
-                                <span class="media-body">
-                                    <span class="label label-inverse pull-right">27 Oct</span>
-                                    <h4 class=" strong">Velit Nostrum <i class="icon-flag text-primary icon-2x"></i></h4>
-                                    <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, libero </p>
-                                </span>
-                            </span>
-                        </a>
-
                     </div>
                 </div>
             </div> 
             <!-- // END col -->
 
             <div class="col-md-8">
-                    
-                    {% for internalmail in internalmails %}
+                <div id="mailbox">
 
                     <div class="innerAll border-bottom">
                         <div class="email-content">
@@ -142,26 +135,26 @@
                                 <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                             </div>
                             <div class="from">
-                                <h5><strong style="color: #1E90FF;">{{ internalmail.From }} </strong><span>({{ internalmail.FromEmail }})</span></h5>
-                                <h6>Time Received: {{ internalmail.timestamp }}</h6>
+                                <h5><strong style="color: #1E90FF;">{{ internalmailfirst.From }} </strong><span>({{ internalmailfirst.FromEmail }})</span></h5>
+                                <h6>Time Received: {{ internalmailfirst.timestamp }}</h6>
                                 <span>To: {{ profiles.user.username }}</span>
                             </div>
-                            <strong>{{ internalmail.Title }}</strong>      
+                            <strong>{{ internalmailfirst.Title }}</strong>      
                         </div>
                     </div>
 
                     <div class="innerAll">
                         <div style="padding-bottom: 20px;"></div>
                         <div class="innerAll">
-                            <p> {{ internalmail.Content }}</p>
-                            <p class="text-muted margin-none">{{ internalmail.Address }}</p>
+                            <p> {{ internalmailfirst.Content }}</p>
+                            <p class="text-muted margin-none">{{ internalmailfirst.Address }}</p>
                         </div>
                     </div>
 
                     <div style="padding-bottom: 50px;"></div>
                     <div class="col-separator-h"></div>
 
-                    {% endfor %}
+                </div>
 
             </div> <!-- end col 2 -->
         </div>
@@ -170,13 +163,6 @@
 
 </div>
         
-
-
-
-
-    
-
-
 
 {% endblock %}
 

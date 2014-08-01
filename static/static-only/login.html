@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Power Smart Energy Management Platform">
+    <meta name="author" content="Jiayu Chen">
+
+    <title>Power Smart Energy Management Platform</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/customize.css" rel="stylesheet">
+    
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+
+
+<body style="background-color: #f8f8f8;" >
+
+    <div class="container">
+       
+        <div class="row">
+            <div class="placeholder text-center"><i class="fa fa-pencil" style="font-size: 120px; color: #dfdfdf; margin-top: 80px; margin-bottom: 20px;"></i></div>
+           
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default" style="margin-bottom: 20px;">
+                  
+                    <div class="panel-heading" style="background-color: #00BFFF">
+                        <h3 class="panel-title" style="color: #ffffff;"><i class="fa fa-lock"></i>  SIGN IN your account</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <form role="form" method ="post" action=".">
+                            
+                            {% csrf_token %}  
+                            <fieldset>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control" id="id_username" name="username" placeholder="Enter your account">
+                                    <p align="justify"><font color="red">{{ form.username.errors }}</font></p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_password">Password</label>
+                                    <input type="password" class="form-control" id="id_password" name="password" placeholder="Enter your Password">
+                                    <p align="justify"><font color="red">{{ form.password.errors }}</font></p>
+                                </div>
+                                <p align="justify"><font color="red">{{ form.non_field_errors }}</font></p>
+
+
+                                <button type="submit" class="btn btn-success" value="{% trans 'Log in' %}" >Login</button>
+                                <input type="hidden" name="next" value="{{ next }}" />
+
+                                <p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-sm-offset-3 text-center">
+                <a href="../register" class="btn btn-inverse">Registration is closed</a>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
