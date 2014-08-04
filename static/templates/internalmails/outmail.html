@@ -60,13 +60,13 @@
     <script src="/static/dajax/jquery.dajax.core.js"></script>
 
     {% dajaxice_js_import %}
-<script>
-    var carname = " ";
-    function send_form(iid){
-    carname = iid
-    Dajaxice.internalmail.email_get(Dajax.process,{'iid': carname });
-}
-</script>
+    <script>
+        var carname = " ";
+        function send_form(iid){
+        carname = iid
+        Dajaxice.internalmail.email_get(Dajax.process,{'iid': carname });
+    }
+    </script>
 </head>
 {% endblock %}
 
@@ -97,25 +97,16 @@
         <div class="row" style="margin-right: 0px; margin-left: 0px;">
             <div class="col-md-4">
                 <div class="box" >                                            
-                    <div class="innerAll border-bottom" style="padding-bottom: 10px;">
-                        <span class="pull-right">You have <strong class="text-danger">{{ totalnumber }} new</strong> emails</span>
-                        <span class="label label-primary">INBOX</span>
-                    </div>
-
                     <div class="list-group">
 
-                        {% for internalmail in internalmails %}
+                        {% for outmail in outmails %}
 
-                        <a href="#"  class="list-group-item" onclick="send_form('{{ internalmail.Ticketid }}');">
+                        <a href="#"  class="list-group-item" onclick="send_form('{{ outmail.Ticketid }}');">
                             <img src="" alt="" width="35" class="thumb img-responsive img-circle pull-left">
                             <span class="media-body">
-                                {% if internalmail.is_read %}
-                                <span class="label label-inverse label-stroke pull-right">{{ internalmail.timestamp.date }}</span>
-                                {% else %}
-                                <span class="label label-inverse pull-right">{{ internalmail.timestamp.date }}</span>
-                                {% endif %}
-                                <h4 class="">{{ internalmail.Title }} <i class="icon-flag text-primary icon-2x"></i></h4>
-                                <p class="list-group-item-text">{{ internalmail.Content }}<span class="strong text-regular"><i class="fa fa-paperclip"></i> 2</span></p>
+                                <span class="label label-inverse label-stroke pull-right">{{ outmail.timestamp.date }}</span>
+                                <h4 class="">{{ outmail.Title }} <i class="icon-flag text-primary icon-2x"></i></h4>
+                                <p class="list-group-item-text">{{ outmail.Content }}<span class="strong text-regular"><i class="fa fa-paperclip"></i> 2</span></p>
                             </span>
                         </a>
 

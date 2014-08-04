@@ -7,8 +7,6 @@ from .models import InternalMail
 @dajaxice_register
 def email_get(request,iid):
 
-	print request.POST
-
 	emailget = InternalMail.objects.get(Ticketid=iid)
 	emailget.is_read = True
 	emailget.save()
