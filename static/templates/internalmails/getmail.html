@@ -7,12 +7,16 @@
     <div class="innerAll border-bottom">
         <div class="email-content">
             <div class="pull-right btn-group btn-group-sm">
-                <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                <form method='POST' action='/accounts/internalmail/delete'>
+                    {% csrf_token %}
+                    <input type='hidden' name='iid' id='id_iid' value='{{ emailget.Ticketid }}'></input>                      
+                    <button class="btn btn-danger btn-sm "><i class="fa fa-trash-o"></i></button>
+                </form>  
             </div>
             <div class="from">
                 <h5><strong style="color: #1E90FF;">{{ emailget.From }} </strong><span>({{ emailget.FromEmail }})</span></h5>
                 <h6>Time Received: {{ emailget.timestamp }}</h6>
-                <span>To: {{ profiles.user.username }}</span>
+                <span>To: {{ emailget.user.username }}</span>
             </div>
             <strong>{{ emailget.Title }}</strong>      
         </div>

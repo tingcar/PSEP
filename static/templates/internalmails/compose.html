@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+
+{% block script1 %} 
+<head>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Power Smart Energy Management Platform">
+    <meta name="author" content="Jiayu Chen">
+
+    <title>Power Smart Energy Management Platform</title>
+
+
+    <!-- Bootstrap Core CSS -->
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/assets/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <!-- Not Added -->
+    <link href="/assets/css/plugins/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!-- Add customized style here -->
+    <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/assets/css/customize.css" rel="stylesheet">
+    <link href="/assets/css/mail.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <!-- Considering add d3.js -->
+    <link href="/assets/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <!-- Important need to keep here -->
+    <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="/assets/js/jquery-1.11.0.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
+        <!-- Custom Theme JavaScript -->
+    <script src="/assets/js/sb-admin-2.js"></script>
+
+</head>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div id="page-wrapper" style="background-color: #ffffff; padding: 0 10px;">
+
+    <div style="padding-bottom: 10px;"></div>
+    <div class="bg-white innerAll border-bottom">
+    <ul class="menubar">
+        <li style = "background-color: #696969;"><a style = "color: #ffffff;" href="/accounts/internalmail/">Inbox</a></li>
+        <li><a href="/accounts/internalmail/outmail/">Outbox</a></li>
+    </ul>
+    <div style="padding-bottom: 10px;"></div>
+    </div>
+    <div class="col-separator-h"></div>
+
+    <div class="col-separator" style="overflow-y: hidden; outline: none;">
+
+        <div class="col-md-8 ">
+            <div class="jumbotron bg-white margin-none center" style = "background-color: #ffffff; padding-top: 0px;">
+                <form role="form" method="post" action="/accounts/internalmail/compose/submit">
+                    {% csrf_token %} 
+                    <h4 style="color: #808080; ">New Message</h4>
+                    <div class="separator bottom"></div> 
+                    <h5>From:  {{ profiles.user.username}}  ({{ profiles.user.email}})</h5>
+                    <div class="separator bottom"></div> 
+                    <h5>To: </h5>
+                    <input class="form-control" id="id_toname" name="toname" type="text" placehoder="To other user of PSEP" style="width: 60%;">
+                    <h5>Title</h5>
+                    <input class="form-control" id="id_Title" name="Title" type="text" placehoder="Message Title" style="width: 60%;">
+                    <h5>Message</h5><textarea class="form-control" id="id_Content" name="Content" placehoder="Add your message"></textarea>
+                    <div class="separator bottom"></div> 
+                    <div class="separator bottom"></div>
+                    
+                    <button type="submit" class="btn btn-success pull-left" value="submit" >submit</button>
+
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>
+    <div class="separator bottom"></div>
+    <div class="col-md-6 col-md-offset-2">
+        {% if request.session.message %}
+            {% if request.session.message == "New message has been sent !" %}
+                <div class="alert alert-success alert-dismissable">
+                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        &times;
+                   </button>
+                   {{ request.session.message }}
+                </div>
+            {% elif request.session.message == "The message is failed, please check if the user is exiting !" %}
+                 <div class="alert alert-danger alert-dismissable">
+                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        &times;
+                   </button>
+                   {{ request.session.message }}
+                </div>
+            {% else %}
+            {% endif %}
+        {% endif %} 
+    </div>
+</div>
+        
+
+{% endblock %}
+
+{% block script2 %} 
+{% endblock %}

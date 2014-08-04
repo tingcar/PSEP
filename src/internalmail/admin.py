@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import InternalMail
+from .models import InternalMail, OutMail
 
 # Register your models here.
 class InternalMailAdmin(admin.ModelAdmin):
@@ -7,3 +7,9 @@ class InternalMailAdmin(admin.ModelAdmin):
         model = InternalMail
         
 admin.site.register(InternalMail, InternalMailAdmin)
+
+class OutMailAdmin(admin.ModelAdmin):
+    class Meta:
+        model = OutMail
+        
+admin.site.register(OutMail, OutMailAdmin)
