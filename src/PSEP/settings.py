@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'enbuckets',
     'profiles',
     'internalmail',
+    'events',
 
     #tools
     'south',

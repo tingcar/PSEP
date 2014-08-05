@@ -29,5 +29,6 @@ urlpatterns = patterns('',
     url(r'^accounts/enbucket/', include('enbuckets.urls')),
     url(r'^accounts/internalmail/', include('internalmail.urls')),
     url(r'^accounts/benchmark/', include('benchmark.urls')),
+    url(r'^accounts/event/', include('events.urls')),
     
 )

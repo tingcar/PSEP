@@ -44,11 +44,6 @@ def userprofile(request):
         internalmails_short = InternalMail.objects.filter(user=request.user)[0:3]
     except:
         return  HttpResponseRedirect('/accounts/login/')
-
-    try:
-        print request.session['message']
-    except:
-        pass
     
     return render_to_response('profiles/editprofile.html', locals(), context_instance=RequestContext(request))
 

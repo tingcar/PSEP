@@ -254,6 +254,9 @@ Author: Jiayu Chen
     color: #000000;
 }
 
+.sidebar .sidebar-nav li a{
+    padding-left: 20px;
+}
 
 /* Login style */
 .login-panel {

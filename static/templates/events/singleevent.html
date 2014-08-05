@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+
+
+{% block script1 %} 
+<head>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Power Smart Energy Management Platform">
+    <meta name="author" content="Jiayu Chen">
+
+    <title>Power Smart Energy Management Platform</title>
+
+
+    <!-- Bootstrap Core CSS -->
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/assets/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <!-- Not Added -->
+    <link href="/assets/css/plugins/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!-- Add customized style here -->
+    <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/assets/css/customize.css" rel="stylesheet">
+    <link href="/assets/css/mail.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <!-- Considering add d3.js -->
+    <link href="/assets/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <!-- Important need to keep here -->
+    <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="/assets/js/jquery-1.11.0.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <script src="/assets/js/plugins/perfectscrollbar.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
+        <!-- Custom Theme JavaScript -->
+    <script src="/assets/js/sb-admin-2.js"></script>
+    
+
+    {% load dajaxice_templatetags %}
+    <script src="/static/dajax/jquery.dajax.core.js"></script>
+
+    {% dajaxice_js_import %}
+    <script>
+        var carname = " ";
+        function send_form(iid){
+        carname = iid
+        Dajaxice.internalmail.email_get(Dajax.process,{'iid': carname });
+    }
+    </script>
+</head>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div id="page-wrapper" style="background-color: #ffffff; padding: 0 10px;">
+
+    <div style="padding-bottom: 10px;"></div>
+
+    <div class="bg-white innerAll border-bottom">
+    <ul class="menubar">
+        <li><a href="/accounts/internalmail/">Inbox</a></li>
+        <li style = "background-color: #696969;"><a style = "color: #ffffff;" href="/accounts/internalmail/outmail/">Outbox</a></li>
+        <li><button class="btn btn-danger btn-xs " onclick="location.href = '/accounts/internalmail/compose/';">COMPOSE</button></li>
+    </ul>
+    <div style="padding-bottom: 10px;"></div>
+    </div>
+    <div class="col-separator-h"></div>
+
+
+    <div class="col-separator" style="overflow-y: hidden; outline: none;">
+
+        <div class="row" style="margin-right: 0px; margin-left: 0px;">
+            <div class="col-md-4">
+                <div class="box" >
+
+                    <div class="innerAll border-bottom" style="padding-bottom: 10px;">
+                        <span class="label label-primary">OUTBOX</span>
+                    </div>
+
+                    <div class="list-group">
+
+                        {% for outmail in outmails %}
+
+                        <a href="#"  class="list-group-item" onclick="send_form('{{ outmail.Ticketid }}');">
+                            <img src="" alt="" width="35" class="thumb img-responsive img-circle pull-left">
+                            <span class="media-body">
+                                <span class="label label-inverse label-stroke pull-right">{{ outmail.timestamp.date }}</span>
+                                <h4 class="">{{ outmail.Title }} <i class="icon-flag text-primary icon-2x"></i></h4>
+                                <p class="list-group-item-text">{{ outmail.Content }}</p>
+                            </span>
+                        </a>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div> 
+            <!-- // END col -->
+
+            <div class="col-md-8">
+                <div id="mailbox">
+
+                    {% if outmailfirst %}
+                    <div class="innerAll border-bottom">
+                        <div class="email-content">
+                            <div class="pull-right btn-group btn-group-sm">
+                                <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                            </div>
+                            <div class="from">
+                                <h5><strong style="color: #1E90FF;">{{ outmailfirst.From }} </strong><span>({{ outmailfirst.FromEmail }})</span></h5>
+                                <h6>Time Received: {{ outmailfirst.timestamp }}</h6>
+                                <span>To: {{ profiles.user.username }}</span>
+                            </div>
+                            <strong>{{ outmailfirst.Title }}</strong>      
+                        </div>
+                    </div>
+
+                    <div class="innerAll">
+                        <div style="padding-bottom: 20px;"></div>
+                        <div class="innerAll">
+                            <p> {{ outmailfirst.Content }}</p>
+                            <p class="text-muted margin-none">{{ outmailfirst.Address }}</p>
+                        </div>
+                    </div>
+
+                    <div style="padding-bottom: 50px;"></div>
+                    <div class="col-separator-h"></div>
+                    {% else %}
+
+                    <div><h4> No Email in the box </h4></div>
+                    <div style="padding-bottom: 100px;"></div>
+                    <div class="col-separator-h"></div>
+                    {% endif %}
+
+                </div>
+
+            </div> <!-- end col 2 -->
+        </div>
+
+    </div> 
+
+</div>
+        
+
+{% endblock %}
+
+{% block script2 %} 
+{% endblock %}

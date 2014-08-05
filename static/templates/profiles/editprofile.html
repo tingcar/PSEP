@@ -68,19 +68,18 @@
 
 <!-- Morris Charts JavaScript -->
 <script src="/assets/js/plugins/morris/raphael.min.js"></script>
-<script src="/assets/js/plugins/utils/popover.js"></script>
     <!-- Custom Theme JavaScript -->
 <script src="/assets/js/sb-admin-2.js"></script>
 
 <script>
     // tooltip demo
     $('.tooltip-demo').tooltip({
-        selector: "[data-toggle=tooltip]",
+        selector: "[data-toggle-type=tooltip]",
         container: "body"
     })
 
     // popover demo
-    $("[data-toggle=popover]")
+    $("[data-toggle-type=popover]")
         .popover()
 </script>
 {% endblock %}
@@ -94,33 +93,13 @@
                 <div class="col-lg-12">
                     <h3 class="page-header">User Profile</h3>
                 </div>
-                <div class="tooltip-demo">
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
-
-
-                                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="">
-                                    Popover on left
-                                </button>
-                                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="">
-                                    Popover on top
-                                </button>
-                                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="">
-                                    Popover on bottom
-                                </button>
-                                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover768559">
-                                    Popover on right
-                                </button>
-                </div>
                 <!-- /.col-lg-12 -->
             </div>
 
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#Account" data-toggle="tab"><i class="fa fa-user"></i> Account</a></li>
-                <li class=""><a href="#Password" data-toggle="tab"><i class="fa fa-key"></i> Password</a></li>
-                <li class=""><a href="#Inquiry" data-toggle="tab"><i class="fa fa-tag"></i> Inquiry</a></li>
+            <ul class="nav nav-tabs tooltip-demo">
+                <li class="active"><a href="#Account" data-toggle="tab" data-toggle-type="tooltip" data-placement="bottom" title="Check and Update your profile"><i class="fa fa-user"></i> Account</a></li>
+                <li class=""><a href="#Password" data-toggle="tab" data-toggle-type="tooltip" data-placement="bottom" title="Change your password"><i class="fa fa-key"></i> Password</a></li>
+                <li class=""><a href="#Inquiry" data-toggle="tab" data-toggle-type="tooltip" data-placement="bottom" title="Send message to web manager"><i class="fa fa-tag"></i> Inquiry</a></li>
             </ul>
 
 
@@ -188,7 +167,7 @@
                                         </div>
 
                                         <div class="separator bottom"></div>
-                                        <button type="submit" class="btn btn-info pull-left" value="submit">update</button>
+                                        <button type="submit" class="btn btn-info pull-left" value="submit" >update</button>
                                         <a href="/accounts/dashboard/" class="btn btn-inverse pull-left">cancel</a>
                                     </div>
 

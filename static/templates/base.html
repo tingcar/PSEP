@@ -35,9 +35,8 @@
     <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
     <link href="/assets/css/customize.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <!-- Considering add d3.js -->
-    <link href="/assets/css/plugins/morris.css" rel="stylesheet">
+
+
 
     <!-- Custom Fonts -->
     <!-- Important need to keep here -->
@@ -49,12 +48,16 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
     <script src="/assets/js/jquery-1.11.0.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Additional Libraries -->
+    <script src="/assets/js/plugins/utils/bootbox.min.js"></script>
 
 
 </head>
 {% endblock %}
+
 
 
 
@@ -82,10 +85,21 @@
 
 <!-- Morris Charts JavaScript -->
 <script src="/assets/js/plugins/morris/raphael.min.js"></script>
-<script src="/assets/js/plugins/utils/popover.js"></script>
 
     <!-- Custom Theme JavaScript -->
 <script src="/assets/js/sb-admin-2.js"></script>
+
+<script>
+    // tooltip demo
+    $('.tooltip-demo').tooltip({
+        selector: "[data-toggle-type=tooltip]",
+        container: "body"
+    })
+
+    // popover demo
+    $("[data-toggle-type=popover]")
+        .popover()
+</script>
 
 
 {% endblock %}
