@@ -15,4 +15,6 @@ def Eventlist(request):
     except:
         return  HttpResponseRedirect('/accounts/login/')
 
+    events = Event.objects.all()
+
     return render_to_response('events/singleevent.html', locals(), context_instance=RequestContext(request))

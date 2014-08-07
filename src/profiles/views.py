@@ -6,6 +6,7 @@ from PSEP.utils import id_generator
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from internalmail.models import InternalMail
+from events.models import Event
 
 def dashboard(request):        
     try:
@@ -13,6 +14,9 @@ def dashboard(request):
         internalmails_short = InternalMail.objects.filter(user=request.user)[0:3]
     except:
         return  HttpResponseRedirect('/accounts/login/')
+
+    events = Event.objects.all()
+    
     return render_to_response('dashboard.html', locals(), context_instance=RequestContext(request))
 
 #update the content of userprofile
