@@ -15,7 +15,7 @@ def dashboard(request):
     except:
         return  HttpResponseRedirect('/accounts/login/')
 
-    events = Event.objects.all()
+    events = Event.objects.all()[0:4]
     
     return render_to_response('dashboard.html', locals(), context_instance=RequestContext(request))
 
